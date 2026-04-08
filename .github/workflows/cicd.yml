@@ -28,6 +28,7 @@ jobs:
   security-scan:
     name: Security scan with trivy
     runs-on: ubuntu-latest
+    needs: compile
     steps:
     # Checkout the repository
     - uses: actions/checkout@v4
