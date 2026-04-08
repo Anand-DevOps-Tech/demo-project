@@ -44,4 +44,9 @@ jobs:
     # Run Trivy scan on filesystem
     - name: Trivy scan fs
       run: trivy fs --format table -o report-fs.txt .
-    
+    # Upload the Trivy report as an artifact
+    - name: upload scan report
+      uses: actions/upload-artifact@v3
+      with:
+        name: trivy-scan-report
+        path: report-fs.txt
